@@ -1,0 +1,147 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/radius/Swachhthon/app/components/Profile/Photogrid.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var Photogrid = function (_Component) {
+    babelHelpers.inherits(Photogrid, _Component);
+
+    function Photogrid() {
+        babelHelpers.classCallCheck(this, Photogrid);
+        return babelHelpers.possibleConstructorReturn(this, (Photogrid.__proto__ || Object.getPrototypeOf(Photogrid)).apply(this, arguments));
+    }
+
+    babelHelpers.createClass(Photogrid, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                _reactNative.ScrollView,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 28
+                    }
+                },
+                _react2.default.createElement(
+                    _reactNative.View,
+                    { style: styles.photogrid, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 29
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 30
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/bck.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 31
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 34
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/bck.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 35
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 38
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/bck.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 39
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 42
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/background.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 43
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 46
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/background.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 47
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _reactNative.View,
+                        { style: styles.photoWrap, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 50
+                            }
+                        },
+                        _react2.default.createElement(_reactNative.Image, { style: styles.photo, source: require('./img/bck.jpg'), __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 51
+                            }
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+    return Photogrid;
+}(_react.Component);
+
+exports.default = Photogrid;
+
+
+var styles = _reactNative.StyleSheet.create({
+    photogrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap'
+    },
+    photoWrap: {
+        margin: 2,
+        height: 150,
+        width: _reactNative.Dimensions.get('window').width / 2 - 4
+    },
+    photo: {
+        flex: 1,
+        width: null,
+        alignSelf: 'stretch'
+    }
+});
+
+_reactNative.AppRegistry.registerComponent('Photogrid', function () {
+    return Photogrid;
+});

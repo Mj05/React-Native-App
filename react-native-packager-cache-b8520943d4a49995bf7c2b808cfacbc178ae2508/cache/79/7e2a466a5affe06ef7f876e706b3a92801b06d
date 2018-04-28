@@ -1,0 +1,169 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _class,
+    _temp2,
+    _jsxFileName = '/home/radius/Swachhthon/app/components/Camera/Camera.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _expo = require('expo');
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var CameraExample = (_temp2 = _class = function (_React$Component) {
+  babelHelpers.inherits(CameraExample, _React$Component);
+
+  function CameraExample() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, CameraExample);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = CameraExample.__proto__ || Object.getPrototypeOf(CameraExample)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      hasCameraPermission: null,
+      type: _expo.Camera.Constants.Type.back
+    }, _this.handlePress = function () {
+      _this.props.navigation.goBack(null);
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(CameraExample, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _ref2, status;
+
+      return regeneratorRuntime.async(function componentWillMount$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(_expo.Permissions.askAsync(_expo.Permissions.CAMERA));
+
+            case 2:
+              _ref2 = _context.sent;
+              status = _ref2.status;
+
+              this.setState({ hasCameraPermission: status === 'granted' });
+
+            case 5:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var hasCameraPermission = this.state.hasCameraPermission;
+
+      if (hasCameraPermission === null) {
+        return _react2.default.createElement(_reactNative.View, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          }
+        });
+      } else if (hasCameraPermission === false) {
+        return _react2.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          'No access to camera'
+        );
+      } else {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 34
+            }
+          },
+          _react2.default.createElement(
+            _expo.Camera,
+            { style: { flex: 1 }, type: this.state.type, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 35
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              {
+                style: {
+                  flex: 1,
+                  backgroundColor: 'transparent',
+                  flexDirection: 'row'
+                }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 36
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                { style: styles.capture, onPress: this.takePicture, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 42
+                  }
+                },
+                '[CAPTURE]'
+              )
+            )
+          )
+        );
+      }
+    }
+  }, {
+    key: 'takePicture',
+    value: function takePicture() {
+      var options = {};
+
+      this.camera.capture({ metadata: options }).then(function (data) {
+        return console.log(data);
+      }).catch(function (err) {
+        return console.error(err);
+      });
+    }
+  }]);
+  return CameraExample;
+}(_react2.default.Component), _class.propTypes = {
+  navigation: _react.PropTypes.object
+}, _temp2);
+exports.default = CameraExample;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  capture: {
+
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    marginLeft: 130,
+    marginTop: 570
+  }
+});

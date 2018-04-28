@@ -1,0 +1,258 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/radius/Swachhthon/app/components/Heros/Heros.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeResponsiveDimensions = require('react-native-responsive-dimensions');
+
+var Heros = function (_Component) {
+  babelHelpers.inherits(Heros, _Component);
+
+  function Heros(props) {
+    babelHelpers.classCallCheck(this, Heros);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Heros.__proto__ || Object.getPrototypeOf(Heros)).call(this, props));
+
+    _this.ListViewItemSeparator = function () {
+      return _react2.default.createElement(_reactNative.View, {
+        style: {
+          height: .5,
+          width: "100%",
+          backgroundColor: "#000"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45
+        }
+      });
+    };
+
+    _this.state = {
+      isLoading: true
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(Heros, [{
+    key: 'GetItem',
+    value: function GetItem(hero_name) {
+
+      Alert.alert(hero_name);
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      return fetch('http://35.154.199.42/HeroesList.php').then(function (response) {
+        return response.json();
+      }).then(function (responseJson) {
+        var ds = new _reactNative.ListView.DataSource({ rowHasChanged: function rowHasChanged(r1, r2) {
+            return r1 !== r2;
+          } });
+        _this2.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson)
+        }, function () {});
+      }).catch(function (error) {
+        console.error(error);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      if (this.state.isLoading) {
+        return _react2.default.createElement(
+          _reactNative.View,
+          { style: { flex: 1, paddingTop: 20 }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 60
+            }
+          },
+          _react2.default.createElement(_reactNative.ActivityIndicator, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          })
+        );
+      }
+
+      handleRankProfilePress = function handleRankProfilePress() {
+        console.log('Rank Profile Pressed');
+      };
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 72
+          }
+        },
+        _react2.default.createElement(_reactNative.Image, { source: require('./Hero1.jpg'), style: styles.heros, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 73
+          }
+        }),
+        _react2.default.createElement(_reactNative.ListView, {
+
+          dataSource: this.state.dataSource,
+
+          renderSeparator: this.ListViewItemSeparator,
+
+          renderRow: function renderRow(rowData) {
+            return _react2.default.createElement(
+              _reactNative.View,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 81
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.ScrollView,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 81
+                  }
+                },
+                _react2.default.createElement(
+                  _reactNative.View,
+                  { style: styles.rank, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 81
+                    }
+                  },
+                  _react2.default.createElement(_reactNative.Image, { source: require('./profile.png'), style: styles.image, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 83
+                    }
+                  }),
+                  _react2.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.rowViewContainer,
+                      onPress: _this3.GetItem.bind(_this3, rowData.hero_name), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 85
+                      }
+                    },
+                    rowData.hero_name
+                  ),
+                  _react2.default.createElement(
+                    _reactNative.Text,
+                    { style: styles.score, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 86
+                      }
+                    },
+                    rowData.hero_score,
+                    '..Pts.'
+                  )
+                )
+              )
+            );
+          },
+
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 75
+          }
+        })
+      );
+    }
+  }]);
+  return Heros;
+}(_react.Component);
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+    backgroundColor: 'white'
+  },
+  rankprofile: {
+
+    width: 100,
+    alignSelf: 'center',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  list: {
+    marginTop: 15,
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(100) },
+  item: {
+    marginLeft: 5,
+    padding: 10,
+    fontSize: 18,
+    height: 40,
+    backgroundColor: 'white'
+  },
+  image: {
+    marginLeft: 5,
+    width: 50,
+    height: 50,
+    backgroundColor: 'white'
+  },
+  heros: {
+
+    height: (0, _reactNativeResponsiveDimensions.responsiveHeight)(11),
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(70),
+
+    marginLeft: 68,
+    backgroundColor: 'white'
+  },
+  herro: {
+
+    marginBottom: 5,
+    width: 100,
+    height: 45,
+    marginLeft: 140,
+    backgroundColor: 'white'
+  },
+  text2: {
+    fontSize: 11,
+    marginLeft: 140,
+    marginTop: 15,
+    backgroundColor: 'white'
+  },
+  container2: {
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(100),
+
+    flexDirection: 'row',
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1,
+    marginTop: 3,
+    marginLeft: 10,
+    marginBottom: 4,
+    paddingBottom: 10,
+    backgroundColor: 'white'
+  },
+  rowViewContainer: {
+    fontSize: 15,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  score: {
+    fontSize: 15,
+    marginRight: 5
+  },
+  rank: {
+    height: 60,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
+});
+
+exports.default = Heros;

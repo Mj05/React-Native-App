@@ -1,0 +1,553 @@
+
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = exports.screenHeight = exports.screenWidth = undefined;
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/radius/Swachhthon/node_modules/react-native-toolbar/Toolbar.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _Ionicons = require('@expo/vector-icons/Ionicons');
+
+var _Ionicons2 = babelHelpers.interopRequireDefault(_Ionicons);
+
+var _Entypo = require('@expo/vector-icons/Entypo');
+
+var _Entypo2 = babelHelpers.interopRequireDefault(_Entypo);
+
+var _FontAwesome = require('@expo/vector-icons/FontAwesome');
+
+var _FontAwesome2 = babelHelpers.interopRequireDefault(_FontAwesome);
+
+var _Foundation = require('@expo/vector-icons/Foundation');
+
+var _Foundation2 = babelHelpers.interopRequireDefault(_Foundation);
+
+var _MaterialIcons = require('@expo/vector-icons/MaterialIcons');
+
+var _MaterialIcons2 = babelHelpers.interopRequireDefault(_MaterialIcons);
+
+var _Octicons = require('@expo/vector-icons/Octicons');
+
+var _Octicons2 = babelHelpers.interopRequireDefault(_Octicons);
+
+var _Zocial = require('@expo/vector-icons/Zocial');
+
+var _Zocial2 = babelHelpers.interopRequireDefault(_Zocial);
+
+var screenWidth = exports.screenWidth = _reactNative.Dimensions.get('window').width;
+var screenHeight = exports.screenHeight = _reactNative.Dimensions.get('window').height;
+
+var BLACK = '#000000';
+var WHITE = '#FFFFFF';
+
+var Toolbar = (_temp = _class = function (_Component) {
+    babelHelpers.inherits(Toolbar, _Component);
+
+    function Toolbar(props) {
+        babelHelpers.classCallCheck(this, Toolbar);
+
+        var _this = babelHelpers.possibleConstructorReturn(this, (Toolbar.__proto__ || Object.getPrototypeOf(Toolbar)).call(this, props));
+
+        _this.setKey = function (key) {
+            _this.setState({
+                currentKey: key
+            });
+        };
+
+        _this.defaultToolbarContainerStyle = _this.defaultToolbarContainerStyle.bind(_this);
+        _this.toolbarContainerStyle = _this.toolbarContainerStyle.bind(_this);
+        _this.defaultToolbarStyle = _this.defaultToolbarStyle.bind(_this);
+        _this.toolbarStyle = _this.toolbarStyle.bind(_this);
+
+        _this.renderButtonIcon = _this.renderButtonIcon.bind(_this);
+        _this.renderButtonTextIcon = _this.renderButtonTextIcon.bind(_this);
+        _this.renderIcon = _this.renderIcon.bind(_this);
+        _this.renderTitle = _this.renderTitle.bind(_this);
+
+        _this.state = {
+            currentKey: props.initialKey
+        };
+        return _this;
+    }
+
+    babelHelpers.createClass(Toolbar, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var presets = this.props.presets;
+            if (presets) {
+                if (!this.props.initialKey) {
+                    if (!this.state.currentKey) {
+                        this.setState({
+                            currentKey: Object.keys(presets)[0]
+                        });
+                    }
+                }
+            }
+        }
+    }, {
+        key: 'defaultToolbarContainerStyle',
+        value: function defaultToolbarContainerStyle(hover) {
+            return this.toolbarContainerStyle(hover, this.props.backgroundColor, this.props.shadowColor, this.props.shadowOpacity, this.props.shadowRadius);
+        }
+    }, {
+        key: 'toolbarContainerStyle',
+        value: function toolbarContainerStyle(hover, backgroundColor, shadowColor, shadowOpacity, shadowRadius) {
+            return {
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                zIndex: this.props.toolbarZIndex,
+                height: 80,
+                width: screenWidth,
+                backgroundColor: hover ? 'transparent' : backgroundColor,
+                shadowColor: shadowColor,
+                shadowOpacity: shadowOpacity,
+                shadowRadius: shadowRadius,
+                shadowOffset: {
+                    height: 1,
+                    width: 0
+                }
+            };
+        }
+    }, {
+        key: 'defaultToolbarStyle',
+        value: function defaultToolbarStyle(hover) {
+            return this.toolbarStyle(hover, this.props.toolbarHeight, this.props.backgroundColor, this.props.borderColor);
+        }
+    }, {
+        key: 'toolbarStyle',
+        value: function toolbarStyle(hover, height, backgroundColor, borderColor) {
+            return {
+                position: 'absolute',
+                flexDirection: 'row',
+                top: 30,
+                zIndex: this.props.toolbarZIndex,
+                left: this.props.hoverIndent,
+                height: height,
+                width: hover ? screenWidth - this.props.hoverIndent * 2 : screenWidth - 30,
+                backgroundColor: backgroundColor,
+                borderColor: borderColor
+
+            };
+        }
+    }, {
+        key: 'renderButtonIcon',
+        value: function renderButtonIcon(onPress, icon, iconStyle, iconFontFamily) {
+            return this.renderButtonTextIcon(null, onPress(), null, null, icon, iconStyle, iconFontFamily);
+        }
+    }, {
+        key: 'renderButtonTextIcon',
+        value: function renderButtonTextIcon(leftRight, _onPress, text, textStyle, icon, iconStyle, iconFontFamily) {
+            var width = 50;
+            if (text) {
+                width = 80;
+            }
+            return _react2.default.createElement(
+                _reactNative.TouchableOpacity,
+                { onPress: function onPress() {
+                        return _onPress();
+                    }, style: { height: 50, width: width, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 167
+                    }
+                },
+                leftRight === 'right' ? text ? _react2.default.createElement(
+                    _reactNative.Text,
+                    { style: [{ paddingRight: 5 }, textStyle], __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 168
+                        }
+                    },
+                    text
+                ) : null : null,
+                icon ? this.renderIcon(icon, iconStyle, iconFontFamily) : null,
+                leftRight === 'left' ? text ? _react2.default.createElement(
+                    _reactNative.Text,
+                    { style: [{ paddingLeft: 5 }, textStyle], __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 170
+                        }
+                    },
+                    text
+                ) : null : null
+            );
+        }
+    }, {
+        key: 'renderIcon',
+        value: function renderIcon(icon, iconStyle, iconFontFamily) {
+            switch (iconFontFamily) {
+                case 'Ionicons':
+                    return _react2.default.createElement(_Ionicons2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 179
+                        }
+                    });
+                case 'Entypo':
+                    return _react2.default.createElement(_Entypo2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 181
+                        }
+                    });
+                case 'FontAwesome':
+                    return _react2.default.createElement(_FontAwesome2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 183
+                        }
+                    });
+                case 'Foundation':
+                    return _react2.default.createElement(_Foundation2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 185
+                        }
+                    });
+                case 'MaterialIcons':
+                    return _react2.default.createElement(_MaterialIcons2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 187
+                        }
+                    });
+                case 'Octicons':
+                    return _react2.default.createElement(_Octicons2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 189
+                        }
+                    });
+                case 'Zocial':
+                    return _react2.default.createElement(_Zocial2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 191
+                        }
+                    });
+                default:
+                    return _react2.default.createElement(_FontAwesome2.default, { style: iconStyle, name: icon, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 193
+                        }
+                    });
+            }
+        }
+    }, {
+        key: 'renderTitle',
+        value: function renderTitle(_onPress2, text, textStyle, leftActive, rightActive, centerMinusator) {
+            var textStyleMargin = {
+                marginLeft: !leftActive ? 50 : 0, marginRight: !rightActive ? 50 : 0
+            };
+            var containerStyle = {
+                width: screenWidth - centerMinusator,
+                height: this.props.toolbarHeight, justifyContent: 'center', alignItems: 'center'
+            };
+
+            var renderView = _react2.default.createElement(
+                _reactNative.View,
+                { style: containerStyle, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 207
+                    }
+                },
+                _react2.default.createElement(
+                    _reactNative.Text,
+                    { style: [textStyle, textStyleMargin], __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 208
+                        }
+                    },
+                    text
+                )
+            );
+            if (_onPress2) {
+                renderView = _react2.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    { style: containerStyle, onPress: function onPress() {
+                            return _onPress2();
+                        }, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 214
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        { style: [textStyle, textStyleMargin], __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 215
+                            }
+                        },
+                        text
+                    )
+                );
+            }
+            return renderView;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var centerMinusator = this.props.hoverIndent * 2;
+            var toolbarContainerStyle = this.defaultToolbarContainerStyle(this.props.hover);
+            var toolbarStyle = this.defaultToolbarStyle(this.props.hover);
+            var left = null;
+            var center = _react2.default.createElement(_reactNative.View, { style: { height: this.props.toolbarHeight, width: screenWidth - centerMinusator }, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 229
+                }
+            });
+            var right = null;
+            var leftActive = false;
+            var rightActive = false;
+
+            var presets = this.props.presets;
+
+            if (presets != null) {
+                if (this.state.currentKey) {
+                    var currentPreset = presets[this.state.currentKey];
+                    var hover = currentPreset.hover;
+                    if (hover) {
+                        toolbarContainerStyle = this.defaultToolbarContainerStyle(hover);
+                        toolbarStyle = this.defaultToolbarStyle(hover);
+                    }
+
+                    if (currentPreset.leftButton) {
+                        var lb = presets[this.state.currentKey].leftButton;
+                        var onPress = function onPress() {};
+                        if (lb.onPress) {
+                            onPress = function onPress() {
+                                return lb.onPress();
+                            };
+                        }
+                        var text = lb.text;
+                        var textStyle = lb.textStyle;
+                        var icon = lb.icon;
+                        var iconStyle = lb.iconStyle;
+                        var iconFontFamily = lb.iconFontFamily;
+
+                        if (icon) {
+                            centerMinusator = centerMinusator + 50;
+                        }
+                        if (text) {
+                            centerMinusator = centerMinusator + 30;
+                        }
+
+                        if (icon || text) {
+                            leftActive = true;
+                            left = this.renderButtonTextIcon('left', function () {
+                                return onPress();
+                            }, text, textStyle, icon, iconStyle, iconFontFamily);
+                        }
+                        center = _react2.default.createElement(_reactNative.View, { style: { height: this.props.toolbarHeight, width: screenWidth - centerMinusator }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 268
+                            }
+                        });
+                    }
+
+                    if (currentPreset.rightButton) {
+                        var rb = presets[this.state.currentKey].rightButton;
+                        var _onPress3 = function _onPress3() {};
+                        if (rb.onPress) {
+                            _onPress3 = function _onPress3() {
+                                return rb.onPress();
+                            };
+                        }
+                        var _text = rb.text;
+                        var _textStyle = rb.textStyle;
+                        var _icon = rb.icon;
+                        var _iconStyle = rb.iconStyle;
+                        var _iconFontFamily = rb.iconFontFamily;
+
+                        if (_icon) {
+                            centerMinusator = centerMinusator + 50;
+                        }
+                        if (_text) {
+                            centerMinusator = centerMinusator + 30;
+                        }
+                        if (_icon || _text) {
+                            rightActive = true;
+                            right = this.renderButtonTextIcon('right', function () {
+                                return _onPress3();
+                            }, _text, _textStyle, _icon, _iconStyle, _iconFontFamily);
+                        }
+                        center = _react2.default.createElement(_reactNative.View, { style: { height: this.props.toolbarHeight, width: screenWidth - centerMinusator }, __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 293
+                            }
+                        });
+                    }
+
+                    if (currentPreset.title) {
+                        var t = currentPreset.title;
+                        var _text2 = t.text;
+                        var _textStyle2 = t.textStyle;
+                        var _onPress4 = null;
+                        if (t.onPress) {
+                            _onPress4 = function _onPress4() {
+                                return t.onPress();
+                            };
+                        }
+                        center = this.renderTitle(_onPress4, _text2, _textStyle2, leftActive, rightActive, centerMinusator);
+                    }
+
+                    if (currentPreset.search) {
+                        var i = currentPreset.search;
+                        var placeholderText = i.placeholderText;
+                        var placeholderTextColor = i.placeholderTextColor ? i.placeholderTextColor : this.props.placeholderTextColor;
+                        var _textStyle3 = i.textStyle;
+
+                        var keyboardType = i.keyboardType ? i.keyboardType : this.props.keyboardType;
+                        var autoCapitalize = i.autoCapitalize ? i.autoCapitalize : this.props.autoCapitalize;
+                        var returnKeyType = i.returnKeyType ? i.returnKeyType : this.props.returnKeyType;
+
+                        var onTextChanged = function onTextChanged() {};
+                        if (i.onTextChanged) {
+                            onTextChanged = function onTextChanged() {
+                                return i.onTextChanged();
+                            };
+                        }
+                        var _onFocus = function onFocus() {};
+                        if (i.onFocus) {
+                            _onFocus = function onFocus() {
+                                return i.onFocus();
+                            };
+                        }
+                        var onSubmit = function onSubmit() {};
+                        if (i.onSubmit) {
+                            onSubmit = function onSubmit() {
+                                return i.onSubmit();
+                            };
+                        }
+
+                        var _icon2 = i.icon;
+                        var _iconStyle2 = i.iconStyle;
+                        var _iconFontFamily2 = i.iconFontFamily;
+                        left = null;
+                        center = _react2.default.createElement(
+                            _reactNative.View,
+                            { style: {
+                                    height: this.props.toolbarHeight, width: screenWidth - centerMinusator,
+                                    justifyContent: 'center', alignItems: 'center', flexDirection: 'row'
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 335
+                                }
+                            },
+                            _icon2 ? _react2.default.createElement(
+                                _reactNative.View,
+                                { style: { height: 50, width: 50, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 339
+                                    }
+                                },
+                                _react2.default.createElement(_reactNative.View, { style: { height: 50, width: 50 - _iconStyle2.fontSize * 2 }, __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 340
+                                    }
+                                }),
+                                _react2.default.createElement(
+                                    _reactNative.View,
+                                    { style: { height: 50, width: _iconStyle2.fontSize * 2, justifyContent: 'center', alignItems: 'center' }, __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 341
+                                        }
+                                    },
+                                    this.renderIcon(_icon2, _iconStyle2, _iconFontFamily2)
+                                )
+                            ) : null,
+                            _react2.default.createElement(_reactNative.TextInput, {
+                                style: [{ height: 50, width: screenWidth - centerMinusator - 50 }, _textStyle3],
+                                autoCapitalize: autoCapitalize, keyboardType: keyboardType,
+                                placeholderTextColor: placeholderTextColor, returnKeyType: returnKeyType,
+                                onChangeText: function onChangeText(text) {
+                                    return onTextChanged(text);
+                                },
+                                onFocus: function onFocus() {
+                                    return _onFocus();
+                                }, placeholder: placeholderText, onSubmitEditing: function onSubmitEditing() {
+                                    return onSubmit();
+                                }, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 345
+                                }
+                            })
+                        );
+                    }
+                }
+            }
+
+            return _react2.default.createElement(
+                _reactNative.View,
+                { style: toolbarContainerStyle, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 358
+                    }
+                },
+                _react2.default.createElement(
+                    _reactNative.View,
+                    { style: toolbarStyle, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 359
+                        }
+                    },
+                    left,
+                    center,
+                    right
+                )
+            );
+        }
+    }]);
+    return Toolbar;
+}(_react.Component), _class.propTypes = {
+
+    backgroundColor: _react.PropTypes.string,
+    borderColor: _react.PropTypes.string,
+    shadowColor: _react.PropTypes.string,
+    shadowOpacity: _react.PropTypes.number,
+    shadowRadius: _react.PropTypes.number,
+
+    toolbarHeight: _react.PropTypes.number,
+    toolbarZIndex: _react.PropTypes.number,
+
+    hoverIndent: _react.PropTypes.number,
+    hover: _react.PropTypes.bool,
+
+    animate: _react.PropTypes.bool,
+    presets: _react.PropTypes.object,
+    initialKey: _react.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
+
+    keyboardType: _react.PropTypes.string,
+    autoCapitalize: _react.PropTypes.string,
+    returnKeyType: _react.PropTypes.string,
+    placeholderTextColor: _react.PropTypes.string,
+    inputTextSize: _react.PropTypes.number,
+    inputTextColor: _react.PropTypes.string
+}, _class.defaultProps = {
+
+    backgroundColor: WHITE,
+    borderColor: null,
+    shadowColor: BLACK,
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+
+    toolbarHeight: 50,
+    toolbarZIndex: 1,
+
+    hoverIndent: 15,
+    hover: false,
+
+    animate: true,
+    presets: null,
+    initialKey: null,
+
+    keyboardType: 'default',
+    autoCapitalize: 'none',
+    returnKeyType: 'search',
+    placeholderTextColor: BLACK
+}, _temp);
+exports.default = Toolbar;

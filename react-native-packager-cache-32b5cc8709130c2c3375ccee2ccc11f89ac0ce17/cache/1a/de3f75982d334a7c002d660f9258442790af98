@@ -1,0 +1,214 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/Report/ReportView.js';
+
+var _Tabs = require('./Tabs');
+
+var _Tabs2 = babelHelpers.interopRequireDefault(_Tabs);
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeCardView = require('react-native-card-view');
+
+var ReportView = function (_Component) {
+  babelHelpers.inherits(ReportView, _Component);
+
+  function ReportView() {
+    babelHelpers.classCallCheck(this, ReportView);
+    return babelHelpers.possibleConstructorReturn(this, (ReportView.__proto__ || Object.getPrototypeOf(ReportView)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(ReportView, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.KeyboardAvoidingView,
+        { behavior: 'padding', style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.cardStyle, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 23
+            }
+          },
+          _react2.default.createElement(
+            _reactNativeCardView.Card,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 24
+              }
+            },
+            _react2.default.createElement(
+              _Tabs2.default,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 27
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.View,
+                { title: 'GREEN ZONE', style: styles.content, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 29
+                  }
+                },
+                _react2.default.createElement(_reactNative.FlatList, {
+                  data: [{ key: 'Bhilwara, Rajasthan' }, { key: 'jaipur, Rajasthan' }, { key: 'Mumbai, Maharashtra' }, { key: 'Udaipur, Rajasthan' }, { key: 'Kolkata, West Bengal' }, { key: 'Chittorgarh, Rajasthan' }, { key: 'bangalore, Karnataka' }, { key: 'Hyderabad, Telangana' }, { key: 'Chennai, Tamil Nadu' }, { key: 'Kanpur, Uttar Pradesh' }, { key: 'Visakhapatnam, Andhra Pradesh' }, { key: 'Ahmedabad, Gujarat' }, { key: 'Surat, Gujarat' }, { key: 'Jodhpur, Rajasthan' }],
+                  onPress: this.InsertList,
+                  renderItem: function renderItem(_ref) {
+                    var item = _ref.item;
+                    return _react2.default.createElement(
+                      _reactNative.View,
+                      { style: styles.container2, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 50
+                        }
+                      },
+                      _react2.default.createElement(_reactNative.Image, { source: require('./Img/location.png'), style: styles.image, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 52
+                        }
+                      }),
+                      _react2.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.item, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 54
+                          }
+                        },
+                        item.key
+                      )
+                    );
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 31
+                  }
+                })
+              ),
+              _react2.default.createElement(
+                _reactNative.View,
+                { title: 'RED ZONE', style: styles.contents, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 66
+                  }
+                },
+                _react2.default.createElement(_reactNative.FlatList, {
+                  data: [{ key: 'Visakhapatnam, Andhra Pradesh' }, { key: 'Ahmedabad, Gujarat' }, { key: 'Surat, Gujarat' }, { key: 'Jodhpur, Rajasthan' }, { key: 'Bhilwara, Rajasthan' }, { key: 'jaipur, Rajasthan' }, { key: 'Mumbai, Maharashtra' }, { key: 'Udaipur, Rajasthan' }, { key: 'Kolkata, West Bengal' }, { key: 'Chittorgarh, Rajasthan' }, { key: 'bangalore, Karnataka' }, { key: 'Hyderabad, Telangana' }, { key: 'Chennai, Tamil Nadu' }, { key: 'Kanpur, Uttar Pradesh' }],
+                  renderItem: function renderItem(_ref2) {
+                    var item = _ref2.item;
+                    return _react2.default.createElement(
+                      _reactNative.View,
+                      { style: styles.container2, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 86
+                        }
+                      },
+                      _react2.default.createElement(_reactNative.Image, { source: require('./Img/locations.png'), style: styles.image, __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 87
+                        }
+                      }),
+                      _react2.default.createElement(
+                        _reactNative.Text,
+                        { style: styles.item, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 89
+                          }
+                        },
+                        item.key
+                      )
+                    );
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 69
+                  }
+                })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return ReportView;
+}(_react.Component);
+
+exports.default = ReportView;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingTop: 0
+  },
+
+
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44
+  },
+  content: {
+    backgroundColor: '#FFFFFF',
+    width: 370
+  },
+  contents: {
+
+    backgroundColor: '#FFFFFF',
+    width: 370
+  },
+
+  header: {
+    margin: 10,
+    color: '#000000',
+    fontSize: 26 },
+
+  text: {
+    marginHorizontal: 20,
+    color: '#000000',
+    textAlign: 'center',
+    fontSize: 18
+  },
+  cardStyle: {
+    flexDirection: 'row',
+    height: 660,
+    width: 360,
+    backgroundColor: 'white',
+    marginLeft: 23,
+    marginTop: 30
+  },
+  container2: {
+    flexDirection: 'row',
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1,
+    marginTop: 3,
+    marginBottom: 4,
+    paddingBottom: 10
+  },
+  image: {
+    width: 30,
+    height: 35,
+    marginTop: 5,
+    marginLeft: 15
+
+  }
+
+});
+_reactNative.AppRegistry.registerComponent('ReportView', function () {
+  return ReportView;
+});

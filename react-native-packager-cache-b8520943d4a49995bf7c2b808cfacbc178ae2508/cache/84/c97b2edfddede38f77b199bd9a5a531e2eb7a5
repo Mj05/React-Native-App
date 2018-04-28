@@ -1,0 +1,232 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _class,
+    _temp,
+    _jsxFileName = '/home/radius/Swachhthon/app/components/Login/Login.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNativeResponsiveDimensions = require('react-native-responsive-dimensions');
+
+var _reactNative = require('react-native');
+
+var _TabView = require('../Tabs/TabView');
+
+var _TabView2 = babelHelpers.interopRequireDefault(_TabView);
+
+var Login = (_temp = _class = function (_Component) {
+  babelHelpers.inherits(Login, _Component);
+
+  function Login(props) {
+    babelHelpers.classCallCheck(this, Login);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+    _this.Submit = function () {
+      var TextInputName = _this.state.TextInputName;
+      var TextInputPhoneNumber = _this.state.TextInputPhoneNumber;
+
+
+      fetch('http://35.154.199.42/submit_user_info.php', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+
+          name: TextInputName,
+
+          phone_number: TextInputPhoneNumber
+
+        })
+
+      }).then(function (response) {
+        return response.json();
+      }).then(function (responseJson) {
+
+        _reactNative.Alert.alert(responseJson);
+        if (responseJson == 'Thanks for Joining Us !!') {
+
+          _this.props.navigation.navigate('TabView');
+        }
+      }).catch(function (error) {
+        console.error(error);
+      });
+    };
+
+    _this.state = {
+
+      TextInputName: '',
+      TextInputPhoneNumber: ''
+
+    };
+
+    return _this;
+  }
+
+  babelHelpers.createClass(Login, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        _reactNative.KeyboardAvoidingView,
+        { style: styles.container, behavior: 'position', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 83
+          }
+        },
+        _react2.default.createElement(_reactNative.Image, { source: require('./img/cln.jpg'), style: styles.Imagebaner, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 84
+          }
+        }),
+        _react2.default.createElement(_reactNative.Image, { source: require('./img/Shuddham.png'), style: styles.backgroundImage, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 86
+          }
+        }),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.content, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 89
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.inputcontainer, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 90
+              }
+            },
+            _react2.default.createElement(_reactNative.TextInput, { secureTextEntry: false,
+              underlineColorAndroid: 'transparent',
+              style: styles.input,
+              placeholder: 'User_Name',
+              onChangeText: function onChangeText(TextInputName) {
+                return _this2.setState({ TextInputName: TextInputName });
+              }, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 92
+              }
+            }),
+            _react2.default.createElement(_reactNative.TextInput, { secureTextEntry: false,
+              underlineColorAndroid: 'transparent',
+              style: styles.input,
+              placeholder: 'User_Contact',
+              onChangeText: function onChangeText(TextInputPhoneNumber) {
+                return _this2.setState({ TextInputPhoneNumber: TextInputPhoneNumber });
+              },
+              maxLength: 10,
+              minLength: 10,
+              keyboardType: 'numeric',
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 98
+              }
+            }),
+            _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              { onPress: this.Submit, style: styles.buttonContainer, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 108
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                { style: styles.buttonText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 109
+                  }
+                },
+                'JOIN NOW'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Login;
+}(_react.Component), _class.propTypes = {
+  navigation: _react.PropTypes.object
+}, _temp);
+exports.default = Login;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white'
+
+  },
+  backgroundImage: {
+    marginTop: '10%',
+    paddingBottom: 10,
+    resizeMode: 'cover',
+    alignSelf: 'center',
+    height: (0, _reactNativeResponsiveDimensions.responsiveHeight)(20),
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(60),
+    justifyContent: 'center'
+  },
+  content: {
+
+    alignItems: 'center',
+    margin: '2%'
+  },
+  Imagebaner: {
+    height: (0, _reactNativeResponsiveDimensions.responsiveHeight)(30),
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(100),
+    marginTop: '2%',
+    resizeMode: 'cover',
+    alignSelf: 'center',
+
+    justifyContent: 'center'
+  },
+  inputcontainer: {
+
+    margin: '3%',
+    marginTop: '5%',
+    padding: 20,
+    paddingBottom: 10,
+    alignSelf: 'stretch',
+    borderWidth: 1,
+    borderColor: '#fff',
+    backgroundColor: 'rgba(2,2,0.2,0.2)'
+  },
+
+  input: {
+    fontSize: 16,
+    height: 40,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: 'rgba(255,255,255,1)'
+  },
+  buttonContainer: {
+    alignSelf: 'center',
+    width: '100%',
+    margin: 10,
+    padding: 8,
+    backgroundColor: 'blue',
+    borderWidth: 1,
+    borderColor: '#fff',
+    backgroundColor: '#1f1f60'
+  },
+  buttonText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white'
+  }
+});
+
+_reactNative.AppRegistry.registerComponent('Login', function () {
+  return Login;
+});

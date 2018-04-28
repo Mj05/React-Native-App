@@ -1,0 +1,247 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _class,
+    _temp2,
+    _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/node_modules/react-native-fab/index.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _src = require('./src');
+
+var _utils = require('./src/utils');
+
+var sharpEasingValues = {
+  entry: _reactNative.Easing.bezier(0.0, 0.0, 0.2, 1),
+  exit: _reactNative.Easing.bezier(0.4, 0.0, 0.6, 1)
+};
+
+var durationValues = {
+  entry: 225,
+  exit: 195
+};
+
+var moveEasingValues = {
+  entry: _reactNative.Easing.bezier(0.0, 0.0, 0.2, 1),
+  exit: _reactNative.Easing.bezier(0.4, 0.0, 1, 1)
+};
+
+var styles = _reactNative.StyleSheet.create({
+  addButton: {
+    borderRadius: 50,
+    alignItems: 'stretch',
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+    elevation: 2
+  },
+  fab_box: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    height: 56,
+    width: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50
+  },
+  addButtonInnerView: {
+    flex: 1,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
+
+var FAB = (_temp2 = _class = function (_Component) {
+  babelHelpers.inherits(FAB, _Component);
+
+  function FAB() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, FAB);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = FAB.__proto__ || Object.getPrototypeOf(FAB)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      translateValue: new _reactNative.Animated.Value(0),
+      shiftValue: new _reactNative.Animated.Value(0)
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(FAB, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _state = this.state,
+          translateValue = _state.translateValue,
+          shiftValue = _state.shiftValue;
+      var _props = this.props,
+          visible = _props.visible,
+          snackOffset = _props.snackOffset;
+
+
+      if (visible) {
+        translateValue.setValue(1);
+      } else {
+        translateValue.setValue(0);
+      }
+      if (snackOffset === 0) {
+        shiftValue.setValue(20);
+      } else {
+        shiftValue.setValue(20 + snackOffset);
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var _state2 = this.state,
+          translateValue = _state2.translateValue,
+          shiftValue = _state2.shiftValue;
+      var visible = this.props.visible;
+
+
+      if (nextProps.visible && !visible) {
+        _reactNative.Animated.timing(translateValue, {
+          duration: durationValues.entry,
+          toValue: 1,
+          easing: sharpEasingValues.entry
+        }).start();
+      } else if (!nextProps.visible && visible) {
+        _reactNative.Animated.timing(translateValue, {
+          duration: durationValues.exit,
+          toValue: 0,
+          easing: sharpEasingValues.exit
+        }).start();
+      }
+      if (nextProps.snackOffset !== this.props.snackOffset) {
+        if (nextProps.snackOffset === 0) {
+          _reactNative.Animated.timing(shiftValue, {
+            duration: durationValues.exit,
+            toValue: 20,
+            easing: moveEasingValues.exit
+          }).start();
+        } else if (nextProps.snackOffset !== 0) {
+          _reactNative.Animated.timing(shiftValue, {
+            duration: durationValues.entry,
+            toValue: 20 + nextProps.snackOffset,
+            easing: moveEasingValues.entry
+          }).start();
+        }
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _state3 = this.state,
+          translateValue = _state3.translateValue,
+          shiftValue = _state3.shiftValue;
+      var _props2 = this.props,
+          onClickAction = _props2.onClickAction,
+          buttonColor = _props2.buttonColor,
+          iconTextComponent = _props2.iconTextComponent,
+          iconTextColor = _props2.iconTextColor,
+          snackOffset = _props2.snackOffset;
+
+
+      var dimensionInterpolate = translateValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: [0, 56]
+      });
+
+      var rotateInterpolate = translateValue.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['-90deg', '0deg']
+      });
+
+      return _react2.default.createElement(
+        _reactNative.Animated.View,
+        { style: [styles.fab_box, { bottom: shiftValue }], __source: {
+            fileName: _jsxFileName,
+            lineNumber: 175
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Animated.View,
+          {
+            style: [styles.addButton, {
+              height: dimensionInterpolate,
+              width: dimensionInterpolate
+            }],
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 176
+            }
+          },
+          _react2.default.createElement(
+            _src.Touchable,
+            {
+              onPress: onClickAction,
+              style: styles.addButtonInnerView,
+              buttonColor: buttonColor,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 184
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Animated.Text,
+              {
+                style: {
+                  transform: [{ scaleX: translateValue }, { rotate: rotateInterpolate }],
+                  fontSize: 24
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 189
+                }
+              },
+              _react2.default.cloneElement(iconTextComponent, { style: {
+                  fontSize: 24,
+                  color: iconTextColor
+                } })
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return FAB;
+}(_react.Component), _class.propTypes = {
+  buttonColor: _react.PropTypes.string,
+  iconTextColor: _react.PropTypes.string,
+  onClickAction: _react.PropTypes.func,
+  iconTextComponent: _react.PropTypes.element,
+  visible: _react.PropTypes.bool,
+  snackOffset: _react.PropTypes.number
+}, _class.defaultProps = {
+  buttonColor: 'red',
+  iconTextColor: '#FFFFFF',
+  onClickAction: _utils.noop,
+  iconTextComponent: _react2.default.createElement(
+    _reactNative.Text,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 76
+      }
+    },
+    '+'
+  ),
+  visible: true,
+  snackOffset: 0
+}, _temp2);
+exports.default = FAB;

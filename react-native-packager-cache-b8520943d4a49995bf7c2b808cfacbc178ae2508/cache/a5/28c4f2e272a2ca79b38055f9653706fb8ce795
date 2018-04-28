@@ -1,0 +1,87 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/radius/Swachhthon/app/Screens/Home.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _Routes = require('../components/config/Routes');
+
+var _Routes2 = babelHelpers.interopRequireDefault(_Routes);
+
+var _Heros = require('../components/Heros/Heros');
+
+var _Heros2 = babelHelpers.interopRequireDefault(_Heros);
+
+var _HomeCards = require('../components/HomeCards/HomeCards');
+
+var _HomeCards2 = babelHelpers.interopRequireDefault(_HomeCards);
+
+var _Login = require('../components/Login/Login');
+
+var _Login2 = babelHelpers.interopRequireDefault(_Login);
+
+var _ProfileCards = require('../components/ProfileCards/ProfileCards');
+
+var _ProfileCards2 = babelHelpers.interopRequireDefault(_ProfileCards);
+
+var _MapView = require('../components/MapView/MapView');
+
+var _MapView2 = babelHelpers.interopRequireDefault(_MapView);
+
+var _ReportView = require('../components/Report/ReportView');
+
+var _ReportView2 = babelHelpers.interopRequireDefault(_ReportView);
+
+var Home = function (_Component) {
+    babelHelpers.inherits(Home, _Component);
+
+    function Home() {
+        babelHelpers.classCallCheck(this, Home);
+        return babelHelpers.possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    }
+
+    babelHelpers.createClass(Home, [{
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                _reactNative.View,
+                { style: styles.container, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 23
+                    }
+                },
+                _react2.default.createElement(_Routes2.default, {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 24
+                    }
+                })
+            );
+        }
+    }]);
+    return Home;
+}(_react.Component);
+
+exports.default = Home;
+
+var styles = _reactNative.StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    subcontainer1: {
+        flex: 1
+    },
+    subcontainer2: {
+        flex: 20
+    }
+});
+_reactNative.AppRegistry.registerComponent('Home', function () {
+    return Home;
+});

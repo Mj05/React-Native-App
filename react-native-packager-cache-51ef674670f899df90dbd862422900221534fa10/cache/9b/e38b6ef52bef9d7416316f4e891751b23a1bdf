@@ -1,0 +1,150 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/mukesh/ReactNative/Mj/app/components/Heros/Heros.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var Heros = function (_Component) {
+  babelHelpers.inherits(Heros, _Component);
+
+  function Heros() {
+    babelHelpers.classCallCheck(this, Heros);
+    return babelHelpers.possibleConstructorReturn(this, (Heros.__proto__ || Object.getPrototypeOf(Heros)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Heros, [{
+    key: 'render',
+    value: function render() {
+
+      handleRankProfilePress = function handleRankProfilePress() {
+        console.log('Rank Profile Pressed');
+      };
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18
+          }
+        },
+        _react2.default.createElement(_reactNative.Image, { source: require('./Hero1.jpg'), style: styles.heros, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19
+          }
+        }),
+        _react2.default.createElement(_reactNative.FlatList, { style: styles.list,
+          data: [{ key: 'Heena' }, { key: 'Aashu' }, { key: 'Surbhi' }, { key: 'Sunny ' }, { key: 'Johny ' }, { key: 'Aashu' }, { key: 'Ankitt ' }, { key: 'Muku  ' }, { key: 'Devin ' }, { key: 'Manu ' }, { key: 'Mani  ' }, { key: 'Anil   ' }, { key: 'Suraj ' }],
+          renderItem: function renderItem(_ref) {
+            var item = _ref.item;
+            return _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.container2, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 37
+                }
+              },
+              _react2.default.createElement(_reactNative.Image, { source: require('./profile.png'), style: styles.image, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 39
+                }
+              }),
+              _react2.default.createElement(
+                _reactNative.Text,
+                { style: styles.item, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 41
+                  }
+                },
+                item.key
+              ),
+              _react2.default.createElement(
+                _reactNative.Text,
+                { style: styles.text2, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 42
+                  }
+                },
+                '120 POINTS'
+              )
+            );
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+          }
+        })
+      );
+    }
+  }]);
+  return Heros;
+}(_react.Component);
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+    backgroundColor: 'white'
+  },
+  rankprofile: {
+
+    width: 100,
+    alignSelf: 'center',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  list: {
+    marginTop: 15
+  },
+  item: {
+    marginLeft: 5,
+    padding: 10,
+    fontSize: 18,
+    height: 45,
+    backgroundColor: 'white'
+  },
+  image: {
+    width: 50,
+    height: 50,
+    backgroundColor: 'white'
+  },
+  heros: {
+
+    width: 210,
+    height: 60,
+    marginLeft: 100,
+    backgroundColor: 'white'
+  },
+  herro: {
+
+    marginBottom: 5,
+    width: 100,
+    height: 45,
+    marginLeft: 140,
+    backgroundColor: 'white'
+  },
+  text2: {
+    fontSize: 11,
+    marginLeft: 140,
+    marginTop: 15,
+    backgroundColor: 'white'
+  },
+  container2: {
+    flexDirection: 'row',
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1,
+    marginTop: 3,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 4,
+    paddingBottom: 10,
+    backgroundColor: 'white'
+  }
+});
+
+exports.default = Heros;

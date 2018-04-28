@@ -1,0 +1,144 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/Profile/Header.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var Header = function (_Component) {
+  babelHelpers.inherits(Header, _Component);
+
+  function Header() {
+    babelHelpers.classCallCheck(this, Header);
+    return babelHelpers.possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Header, [{
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Image,
+          { style: styles.headerbackground, source: require('./img/ProfileBack.jpg'), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.header, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 25
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.profilepicwrap, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 26
+                }
+              },
+              _react2.default.createElement(_reactNative.Image, { style: styles.profilepic, source: require('./img/Profileicon.png'), __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 28
+                }
+              })
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.name, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 30
+                }
+              },
+              'Mukesh Jangid'
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.pos, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 31
+                }
+              },
+              'Pratap Nagar,Bhilwara'
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Header;
+}(_react.Component);
+
+exports.default = Header;
+
+
+var styles = _reactNative.StyleSheet.create({
+  headerbackground: {
+    flex: 2,
+    width: null,
+    alignSelf: 'stretch'
+  },
+  container: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch'
+  },
+  header: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 10,
+    backgroundColor: 'rgba(0,0,0,0.5)'
+  },
+  profilepicwrap: {
+    marginTop: 10,
+    width: 100,
+    height: 100,
+    padding: 1,
+    borderRadius: 90,
+    borderColor: '#2980b9',
+    borderWidth: 1
+  },
+  profilepic: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  name: {
+    marginTop: 5,
+    fontSize: 15,
+    color: '#fff',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold'
+  },
+  pos: {
+    alignItems: 'center',
+    fontSize: 11.5,
+    color: '#fff',
+    fontStyle: 'italic'
+
+  }
+
+});
+
+_reactNative.AppRegistry.registerComponent('Header', function () {
+  return Header;
+});

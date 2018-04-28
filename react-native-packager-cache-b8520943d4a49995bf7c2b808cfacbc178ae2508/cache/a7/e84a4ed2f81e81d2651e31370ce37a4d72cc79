@@ -1,0 +1,730 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/home/radius/Swachhthon/app/components/Tabs/index.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = babelHelpers.interopRequireDefault(_propTypes);
+
+var _reactNative = require('react-native');
+
+var _reactNativeResponsiveDimensions = require('react-native-responsive-dimensions');
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var AnimatedTextInput = _reactNative.Animated.createAnimatedComponent(_reactNative.TextInput);
+var containerHeight = 40;
+var middleHeight = 20;
+
+var Search = function (_PureComponent) {
+  babelHelpers.inherits(Search, _PureComponent);
+
+  function Search(props) {
+    var _this2 = this;
+
+    babelHelpers.classCallCheck(this, Search);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+
+    _this.onLayout = function (event) {
+      var contentWidth = event.nativeEvent.layout.width;
+      _this.contentWidth = contentWidth;
+      _this.middleWidth = contentWidth / 2;
+      if (_this.state.expanded) {
+        _this.expandAnimation();
+      } else {
+        _this.collapseAnimation();
+      }
+    };
+
+    _this.onSearch = function _callee() {
+      return regeneratorRuntime.async(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.t0 = _this.props.beforeSearch;
+
+              if (!_context.t0) {
+                _context.next = 4;
+                break;
+              }
+
+              _context.next = 4;
+              return regeneratorRuntime.awrap(_this.props.beforeSearch(_this.state.keyword));
+
+            case 4:
+              if (!(_this.props.keyboardShouldPersist === false)) {
+                _context.next = 7;
+                break;
+              }
+
+              _context.next = 7;
+              return regeneratorRuntime.awrap(_reactNative.Keyboard.dismiss());
+
+            case 7:
+              _context.t1 = _this.props.onSearch;
+
+              if (!_context.t1) {
+                _context.next = 11;
+                break;
+              }
+
+              _context.next = 11;
+              return regeneratorRuntime.awrap(_this.props.onSearch(_this.state.keyword));
+
+            case 11:
+              _context.t2 = _this.props.afterSearch;
+
+              if (!_context.t2) {
+                _context.next = 15;
+                break;
+              }
+
+              _context.next = 15;
+              return regeneratorRuntime.awrap(_this.props.afterSearch(_this.state.keyword));
+
+            case 15:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.onChangeText = function _callee2(text) {
+      return regeneratorRuntime.async(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return regeneratorRuntime.awrap(_this.setState({ keyword: text }));
+
+            case 2:
+              _context2.next = 4;
+              return regeneratorRuntime.awrap(new Promise(function (resolve, reject) {
+                _reactNative.Animated.timing(_this.iconDeleteAnimated, {
+                  toValue: text.length > 0 ? 1 : 0,
+                  duration: 200
+                }).start(function () {
+                  return resolve();
+                });
+              }));
+
+            case 4:
+              _context2.t0 = _this.props.onChangeText;
+
+              if (!_context2.t0) {
+                _context2.next = 8;
+                break;
+              }
+
+              _context2.next = 8;
+              return regeneratorRuntime.awrap(_this.props.onChangeText(_this.state.keyword));
+
+            case 8:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.onFocus = function _callee3() {
+      return regeneratorRuntime.async(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.t0 = _this.props.beforeFocus;
+
+              if (!_context3.t0) {
+                _context3.next = 4;
+                break;
+              }
+
+              _context3.next = 4;
+              return regeneratorRuntime.awrap(_this.props.beforeFocus());
+
+            case 4:
+              _context3.t1 = _this.refs.input_keyword._component.isFocused;
+
+              if (!_context3.t1) {
+                _context3.next = 8;
+                break;
+              }
+
+              _context3.next = 8;
+              return regeneratorRuntime.awrap(_this.refs.input_keyword._component.focus());
+
+            case 8:
+              _context3.next = 10;
+              return regeneratorRuntime.awrap(_this.setState(function (prevState) {
+                return { expanded: !prevState.expanded };
+              }));
+
+            case 10:
+              _context3.next = 12;
+              return regeneratorRuntime.awrap(_this.expandAnimation());
+
+            case 12:
+              _context3.t2 = _this.props.onFocus;
+
+              if (!_context3.t2) {
+                _context3.next = 16;
+                break;
+              }
+
+              _context3.next = 16;
+              return regeneratorRuntime.awrap(_this.props.onFocus(_this.state.keyword));
+
+            case 16:
+              _context3.t3 = _this.props.afterFocus;
+
+              if (!_context3.t3) {
+                _context3.next = 20;
+                break;
+              }
+
+              _context3.next = 20;
+              return regeneratorRuntime.awrap(_this.props.afterFocus());
+
+            case 20:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.focus = function _callee4() {
+      var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      return regeneratorRuntime.async(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return regeneratorRuntime.awrap(_this.setState({ keyword: text }));
+
+            case 2:
+              _context4.next = 4;
+              return regeneratorRuntime.awrap(_this.refs.input_keyword._component.focus());
+
+            case 4:
+            case 'end':
+              return _context4.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.onDelete = function _callee5() {
+      return regeneratorRuntime.async(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.t0 = _this.props.beforeDelete;
+
+              if (!_context5.t0) {
+                _context5.next = 4;
+                break;
+              }
+
+              _context5.next = 4;
+              return regeneratorRuntime.awrap(_this.props.beforeDelete());
+
+            case 4:
+              _context5.next = 6;
+              return regeneratorRuntime.awrap(new Promise(function (resolve, reject) {
+                _reactNative.Animated.timing(_this.iconDeleteAnimated, {
+                  toValue: 0,
+                  duration: 200
+                }).start(function () {
+                  return resolve();
+                });
+              }));
+
+            case 6:
+              _context5.next = 8;
+              return regeneratorRuntime.awrap(_this.setState({ keyword: '' }));
+
+            case 8:
+              _context5.t1 = _this.props.onDelete;
+
+              if (!_context5.t1) {
+                _context5.next = 12;
+                break;
+              }
+
+              _context5.next = 12;
+              return regeneratorRuntime.awrap(_this.props.onDelete());
+
+            case 12:
+              _context5.t2 = _this.props.afterDelete;
+
+              if (!_context5.t2) {
+                _context5.next = 16;
+                break;
+              }
+
+              _context5.next = 16;
+              return regeneratorRuntime.awrap(_this.props.afterDelete());
+
+            case 16:
+            case 'end':
+              return _context5.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.onCancel = function _callee6() {
+      return regeneratorRuntime.async(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.t0 = _this.props.beforeCancel;
+
+              if (!_context6.t0) {
+                _context6.next = 4;
+                break;
+              }
+
+              _context6.next = 4;
+              return regeneratorRuntime.awrap(_this.props.beforeCancel());
+
+            case 4:
+              _context6.next = 6;
+              return regeneratorRuntime.awrap(_this.setState({ keyword: '' }));
+
+            case 6:
+              _context6.next = 8;
+              return regeneratorRuntime.awrap(_this.setState(function (prevState) {
+                return { expanded: !prevState.expanded };
+              }));
+
+            case 8:
+              _context6.next = 10;
+              return regeneratorRuntime.awrap(_this.collapseAnimation(true));
+
+            case 10:
+              _context6.t1 = _this.props.onCancel;
+
+              if (!_context6.t1) {
+                _context6.next = 14;
+                break;
+              }
+
+              _context6.next = 14;
+              return regeneratorRuntime.awrap(_this.props.onCancel());
+
+            case 14:
+              _context6.t2 = _this.props.afterCancel;
+
+              if (!_context6.t2) {
+                _context6.next = 18;
+                break;
+              }
+
+              _context6.next = 18;
+              return regeneratorRuntime.awrap(_this.props.afterCancel());
+
+            case 18:
+            case 'end':
+              return _context6.stop();
+          }
+        }
+      }, null, _this2);
+    };
+
+    _this.expandAnimation = function () {
+      return new Promise(function (resolve, reject) {
+        _reactNative.Animated.parallel([_reactNative.Animated.timing(_this.inputFocusWidthAnimated, {
+          toValue: _this.contentWidth - 70,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.btnCancelAnimated, {
+          toValue: 10,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.inputFocusPlaceholderAnimated, {
+          toValue: _this.props.placeholderExpandedMargin,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.iconSearchAnimated, {
+          toValue: _this.props.searchIconExpandedMargin,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.iconDeleteAnimated, {
+          toValue: _this.state.keyword.length > 0 ? 1 : 0,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.shadowOpacityAnimated, {
+          toValue: _this.props.shadowOpacityExpanded,
+          duration: 200
+        }).start()]);
+        _this.shadowHeight = _this.props.shadowOffsetHeightExpanded;
+        resolve();
+      });
+    };
+
+    _this.collapseAnimation = function () {
+      var isForceAnim = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      return new Promise(function (resolve, reject) {
+        _reactNative.Animated.parallel([_this.props.keyboardShouldPersist === false ? _reactNative.Keyboard.dismiss() : null, _reactNative.Animated.timing(_this.inputFocusWidthAnimated, {
+          toValue: _this.contentWidth - 10,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.btnCancelAnimated, {
+          toValue: _this.contentWidth,
+          duration: 200
+        }).start(), _this.props.keyboardShouldPersist === false ? _reactNative.Animated.timing(_this.inputFocusPlaceholderAnimated, {
+          toValue: _this.middleWidth - _this.props.placeholderCollapsedMargin,
+          duration: 200
+        }).start() : null, _this.props.keyboardShouldPersist === false || isForceAnim === true ? _reactNative.Animated.timing(_this.iconSearchAnimated, {
+          toValue: _this.middleWidth - _this.props.searchIconCollapsedMargin,
+          duration: 200
+        }).start() : null, _reactNative.Animated.timing(_this.iconDeleteAnimated, {
+          toValue: 0,
+          duration: 200
+        }).start(), _reactNative.Animated.timing(_this.shadowOpacityAnimated, {
+          toValue: _this.props.shadowOpacityCollapsed,
+          duration: 200
+        }).start()]);
+        _this.shadowHeight = _this.props.shadowOffsetHeightCollapsed;
+        resolve();
+      });
+    };
+
+    _this.state = {
+      keyword: '',
+      expanded: false
+    };
+
+    var _Dimensions$get = _reactNative.Dimensions.get('window'),
+        width = _Dimensions$get.width;
+
+    _this.contentWidth = width;
+    _this.middleWidth = width / 2;
+
+    _this.iconSearchAnimated = new _reactNative.Animated.Value(_this.middleWidth - _this.props.searchIconCollapsedMargin);
+    _this.iconDeleteAnimated = new _reactNative.Animated.Value(0);
+    _this.inputFocusWidthAnimated = new _reactNative.Animated.Value(_this.contentWidth - 10);
+    _this.inputFocusPlaceholderAnimated = new _reactNative.Animated.Value(_this.middleWidth - _this.props.placeholderCollapsedMargin);
+    _this.btnCancelAnimated = new _reactNative.Animated.Value(_this.contentWidth);
+
+    _this.onFocus = _this.onFocus.bind(_this);
+    _this.onSearch = _this.onSearch.bind(_this);
+    _this.onChangeText = _this.onChangeText.bind(_this);
+    _this.onCancel = _this.onCancel.bind(_this);
+    _this.onDelete = _this.onDelete.bind(_this);
+    _this.focus = _this.focus.bind(_this);
+    _this.expandAnimation = _this.expandAnimation.bind(_this);
+    _this.collapseAnimation = _this.collapseAnimation.bind(_this);
+    _this.onLayout = _this.onLayout.bind(_this);
+
+    _this.placeholder = _this.props.placeholder || 'Search';
+    _this.cancelTitle = _this.props.cancelTitle || 'Cancel';
+
+    _this.shadowOpacityAnimated = new _reactNative.Animated.Value(_this.props.shadowOpacityCollapsed);
+    _this.shadowHeight = _this.props.shadowOffsetHeightCollapsed;
+    return _this;
+  }
+
+  babelHelpers.createClass(Search, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.Mycontainer, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 245
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Animated.View,
+          {
+            ref: 'searchContainer',
+            style: [styles.container, this.props.backgroundColor && {
+              backgroundColor: this.props.backgroundColor
+            }],
+            onLayout: this.onLayout,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 246
+            }
+          },
+          _react2.default.createElement(AnimatedTextInput, {
+            ref: 'input_keyword',
+            style: [styles.input, this.props.placeholderTextColor && {
+              color: this.props.placeholderTextColor
+            }, this.props.inputStyle && this.props.inputStyle, this.props.inputHeight && { height: this.props.inputHeight }, this.props.inputBorderRadius && {
+              borderRadius: this.props.inputBorderRadius
+            }, {
+              width: this.inputFocusWidthAnimated,
+              paddingLeft: this.inputFocusPlaceholderAnimated
+            }, this.props.shadowVisible && {
+              shadowOffset: {
+                width: this.props.shadowOffsetWidth,
+                height: this.shadowHeight
+              },
+              shadowColor: this.props.shadowColor,
+              shadowOpacity: this.shadowOpacityAnimated,
+              shadowRadius: this.props.shadowRadius
+            }],
+            editable: this.props.editable,
+            value: this.state.keyword,
+            onChangeText: this.onChangeText,
+            placeholder: this.placeholder,
+            placeholderTextColor: this.props.placeholderTextColor || styles.placeholderColor,
+            onSubmitEditing: this.onSearch,
+            autoCorrect: false,
+            blurOnSubmit: this.props.blurOnSubmit,
+            returnKeyType: this.props.returnKeyType || 'search',
+            keyboardType: this.props.keyboardType || 'default',
+            autoCapitalize: this.props.autoCapitalize,
+            onFocus: this.onFocus,
+            underlineColorAndroid: 'transparent',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 256
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.TouchableWithoutFeedback,
+            { onPress: this.onFocus, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 298
+              }
+            },
+            this.props.iconSearch ? _react2.default.createElement(
+              _reactNative.Animated.View,
+              {
+                style: [styles.iconSearch, { left: this.iconSearchAnimated }],
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 300
+                }
+              },
+              this.props.iconSearch
+            ) : _react2.default.createElement(_reactNative.Animated.Image, {
+              source: require('./img/search.png'),
+              style: [styles.iconSearch, styles.iconSearchDefault, this.props.tintColorSearch && {
+                tintColor: this.props.tintColorSearch
+              }, {
+                left: this.iconSearchAnimated
+              }],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 305
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableWithoutFeedback,
+            { onPress: this.onDelete, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 319
+              }
+            },
+            this.props.iconDelete ? _react2.default.createElement(
+              _reactNative.Animated.View,
+              {
+                style: [styles.iconDelete, this.props.positionRightDelete && {
+                  right: this.props.positionRightDelete
+                }, { opacity: this.iconDeleteAnimated }],
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 321
+                }
+              },
+              this.props.iconDelete
+            ) : _react2.default.createElement(_reactNative.Animated.Image, {
+              source: require('./img/delete.png'),
+              style: [styles.iconDelete, styles.iconDeleteDefault, this.props.tintColorDelete && {
+                tintColor: this.props.tintColorDelete
+              }, this.props.positionRightDelete && {
+                right: this.props.positionRightDelete
+              }, { opacity: this.iconDeleteAnimated }],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 332
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableWithoutFeedback,
+            { onPress: this.onCancel, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 347
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Animated.View,
+              {
+                style: [styles.cancelButton, this.props.cancelButtonStyle && this.props.cancelButtonStyle, this.props.cancelButtonViewStyle && this.props.cancelButtonViewStyle, { left: this.btnCancelAnimated }],
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 348
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: [styles.cancelButtonText, this.props.titleCancelColor && {
+                    color: this.props.titleCancelColor
+                  }, this.props.cancelButtonStyle && this.props.cancelButtonStyle, this.props.cancelButtonTextStyle && this.props.cancelButtonTextStyle],
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 356
+                  }
+                },
+                this.cancelTitle
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Search;
+}(_react.PureComponent);
+
+var styles = {
+  container: {
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(85),
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    backgroundColor: '#3D92DE',
+    height: containerHeight,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 5
+  },
+  input: {
+    height: containerHeight - 4,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingRight: 20,
+    borderColor: '#444',
+    backgroundColor: '#f7f7f7',
+    borderRadius: 5,
+    fontSize: 13
+  },
+  placeholderColor: 'grey',
+  iconSearch: {
+
+    position: 'absolute',
+    top: middleHeight - 7,
+    height: (0, _reactNativeResponsiveDimensions.responsiveHeight)(3),
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(5)
+
+  },
+  iconSearchDefault: {
+    tintColor: 'grey'
+  },
+  iconDelete: {
+    position: 'absolute',
+    right: 70,
+    top: middleHeight - 7,
+    height: (0, _reactNativeResponsiveDimensions.responsiveHeight)(3),
+    width: (0, _reactNativeResponsiveDimensions.responsiveWidth)(5)
+  },
+  iconDeleteDefault: {
+    tintColor: 'grey'
+  },
+  cancelButton: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    backgroundColor: 'transparent',
+    width: 60,
+    height: 50
+  },
+  cancelButtonText: {
+    fontSize: 14,
+    color: '#fff'
+  }
+};
+
+Search.propTypes = {
+  beforeFocus: _propTypes2.default.func,
+  onFocus: _propTypes2.default.func,
+  afterFocus: _propTypes2.default.func,
+
+  beforeSearch: _propTypes2.default.func,
+  onSearch: _propTypes2.default.func,
+  afterSearch: _propTypes2.default.func,
+
+  onChangeText: _propTypes2.default.func,
+
+  beforeCancel: _propTypes2.default.func,
+  onCancel: _propTypes2.default.func,
+  afterCancel: _propTypes2.default.func,
+
+  beforeDelete: _propTypes2.default.func,
+  onDelete: _propTypes2.default.func,
+  afterDelete: _propTypes2.default.func,
+
+  backgroundColor: _propTypes2.default.string,
+  placeholderTextColor: _propTypes2.default.string,
+  titleCancelColor: _propTypes2.default.string,
+  tintColorSearch: _propTypes2.default.string,
+  tintColorDelete: _propTypes2.default.string,
+  inputStyle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.object, _reactNative.View.propTypes.style]),
+  cancelButtonStyle: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.object]),
+  onLayout: _propTypes2.default.func,
+  cancelButtonStyle: _reactNative.View.propTypes.style,
+  cancelButtonTextStyle: _reactNative.Text.propTypes.style,
+  cancelButtonViewStyle: _reactNative.View.propTypes.style,
+
+  placeholder: _propTypes2.default.string,
+  cancelTitle: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]),
+  iconDelete: _propTypes2.default.object,
+  iconSearch: _propTypes2.default.object,
+  returnKeyType: _propTypes2.default.string,
+  keyboardType: _propTypes2.default.string,
+  autoCapitalize: _propTypes2.default.string,
+  inputHeight: _propTypes2.default.number,
+  inputBorderRadius: _propTypes2.default.number,
+  contentWidth: _propTypes2.default.number,
+  middleWidth: _propTypes2.default.number,
+  editable: _propTypes2.default.bool,
+  blurOnSubmit: _propTypes2.default.bool,
+  keyboardShouldPersist: _propTypes2.default.bool,
+
+  positionRightDelete: _propTypes2.default.number,
+  searchIconCollapsedMargin: _propTypes2.default.number,
+  searchIconExpandedMargin: _propTypes2.default.number,
+  placeholderCollapsedMargin: _propTypes2.default.number,
+  placeholderExpandedMargin: _propTypes2.default.number,
+
+  shadowOffsetHeightCollapsed: _propTypes2.default.number,
+  shadowOffsetHeightExpanded: _propTypes2.default.number,
+  shadowOffsetWidth: _propTypes2.default.number,
+  shadowColor: _propTypes2.default.string,
+  shadowOpacityCollapsed: _propTypes2.default.number,
+  shadowOpacityExpanded: _propTypes2.default.number,
+  shadowRadius: _propTypes2.default.number,
+  shadowVisible: _propTypes2.default.bool
+};
+
+Search.defaultProps = {
+  editable: true,
+  blurOnSubmit: false,
+  keyboardShouldPersist: false,
+  searchIconCollapsedMargin: 130,
+  searchIconExpandedMargin: 10,
+  placeholderCollapsedMargin: 110,
+  placeholderExpandedMargin: 20,
+
+
+  shadowOffsetWidth: 0,
+  shadowOffsetHeightCollapsed: 2,
+  shadowOffsetHeightExpanded: 4,
+  shadowColor: '#000',
+  shadowOpacityCollapsed: 0.12,
+  shadowOpacityExpanded: 0.24,
+  shadowRadius: 4,
+  shadowVisible: false
+};
+
+exports.default = Search;

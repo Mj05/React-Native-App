@@ -1,0 +1,58 @@
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactNavigation = require('react-navigation');
+
+var _Login = require('../Login/Login');
+
+var _Login2 = babelHelpers.interopRequireDefault(_Login);
+
+var _TabView = require('../Tabs/TabView');
+
+var _TabView2 = babelHelpers.interopRequireDefault(_TabView);
+
+var _Profile = require('../Profile/Profile');
+
+var _Profile2 = babelHelpers.interopRequireDefault(_Profile);
+
+var _Camera = require('../Camera/Camera');
+
+var _Camera2 = babelHelpers.interopRequireDefault(_Camera);
+
+exports.default = (0, _reactNavigation.StackNavigator)({
+    Login: {
+        screen: _Login2.default,
+        navigationOptions: {
+            header: function header() {
+                return null;
+            }
+        }
+    },
+    TabView: {
+        screen: _TabView2.default,
+        navigationOptions: {
+            header: function header() {
+                return null;
+            }
+        }
+    },
+    Profile: {
+        screen: _Profile2.default,
+        navigationOptions: {
+            headerTitle: "Profile"
+        }
+    },
+    Camera: {
+        screen: _Camera2.default,
+        navigationOptions: {
+            header: function header() {
+                return null;
+            }
+        }
+    }
+
+}, {
+    mode: 'modal'
+
+});

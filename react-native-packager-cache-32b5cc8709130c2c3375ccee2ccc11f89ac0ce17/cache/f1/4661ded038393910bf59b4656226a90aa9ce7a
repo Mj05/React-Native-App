@@ -1,0 +1,309 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/ProfileCards/ProfileCards.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeCardView = require('react-native-card-view');
+
+var ProfileCards = function (_Component) {
+  babelHelpers.inherits(ProfileCards, _Component);
+
+  function ProfileCards() {
+    babelHelpers.classCallCheck(this, ProfileCards);
+    return babelHelpers.possibleConstructorReturn(this, (ProfileCards.__proto__ || Object.getPrototypeOf(ProfileCards)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(ProfileCards, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.ScrollView,
+          { style: styles.scrollStyle, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 9
+            }
+          },
+          _react2.default.createElement(
+            _reactNativeCardView.Card,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 10
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.cardStyle, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 11
+                }
+              },
+              _react2.default.createElement(
+                _reactNativeCardView.CardContent,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 12
+                  }
+                },
+                _react2.default.createElement(
+                  _reactNative.View,
+                  { style: [styles.profilepicwrap, styles.icon], __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 13
+                    }
+                  },
+                  _react2.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    { style: styles.button, onPress: this.handleProfilePress, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 14
+                      }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { style: styles.profilepic, source: require('./images/icon.png'), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 15
+                      }
+                    })
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.title, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 18
+                    }
+                  },
+                  'Heena Parwani'
+                ),
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.smallTitle, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 19
+                    }
+                  },
+                  'Bhopalganj Bhilwara, Rajasthan'
+                ),
+                _react2.default.createElement(_reactNative.Image, { style: styles.image,
+                  source: require('./images/swachh1.jpg'), __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 20
+                  }
+                })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactNativeCardView.Card,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 25
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.cardStyle, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 26
+                }
+              },
+              _react2.default.createElement(
+                _reactNativeCardView.CardContent,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 27
+                  }
+                },
+                _react2.default.createElement(
+                  _reactNative.View,
+                  { style: [styles.profilepicwrap, styles.icon], __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 28
+                    }
+                  },
+                  _react2.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    { style: styles.button, onPress: this.handleProfilePress, __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 29
+                      }
+                    },
+                    _react2.default.createElement(_reactNative.Image, { style: styles.profilepic, source: require('./images/icon.png'), __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 30
+                      }
+                    })
+                  )
+                ),
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.title, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 33
+                    }
+                  },
+                  'Surbhi Vyas'
+                ),
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.smallTitle, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 34
+                    }
+                  },
+                  'Bhopalganj Bhilwara, Rajasthan'
+                ),
+                _react2.default.createElement(_reactNative.Image, { style: styles.image,
+                  source: require('./images/swachh3.jpg'), __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 35
+                  }
+                })
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactNative.TouchableOpacity,
+          { style: styles.buttonContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.Text,
+            { style: styles.buttonText, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 42
+              }
+            },
+            'Delete Account'
+          ),
+          _react2.default.createElement(_reactNative.Image, { style: styles.deleteimage,
+            source: require('./images/delete.png'), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            }
+          })
+        )
+      );
+    }
+  }]);
+  return ProfileCards;
+}(_react.Component);
+
+exports.default = ProfileCards;
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  scrollStyle: {
+    height: 30,
+    width: 400,
+    paddingLeft: 0
+  },
+  profilepicwrap: {
+    marginTop: 0,
+    width: 100,
+    height: 100,
+    padding: 0,
+    borderRadius: 90,
+    borderColor: 'red',
+    borderWidth: 0
+  },
+  profilepic: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 100,
+    borderColor: '#fff',
+    borderWidth: 1,
+    paddingBottom: 20
+  },
+  button: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2980b9',
+    width: 415,
+    marginTop: 0,
+    marginLeft: 0,
+    height: 40
+  },
+  buttonText: {
+    fontSize: 15,
+    marginTop: 8,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    justifyContent: 'center',
+    alignSelf: 'center'
+  },
+  title: {
+    fontSize: 11,
+    marginLeft: 55,
+    backgroundColor: 'transparent',
+    color: 'black',
+    marginTop: -60
+  },
+  image: {
+    height: 200,
+    width: 320,
+    marginTop: 15,
+    marginBottom: 30,
+    marginLeft: -12
+  },
+  icon: {
+    height: 45,
+    width: 45,
+    marginLeft: 0,
+    marginBottom: 25
+
+  },
+  smallTitle: {
+    fontSize: 9,
+    backgroundColor: 'transparent',
+    color: 'black',
+    marginLeft: 55
+  },
+  cardStyle: {
+    height: 230,
+    width: 330,
+    marginTop: 15,
+    marginRight: 0,
+    backgroundColor: '#F5F5F5'
+  },
+  deleteimage: {
+    marginTop: 10,
+    marginLeft: 7,
+    height: 20,
+    width: 20
+  }
+});
+_reactNative.AppRegistry.registerComponent('ProfileCards', function () {
+  return ProfileCards;
+});

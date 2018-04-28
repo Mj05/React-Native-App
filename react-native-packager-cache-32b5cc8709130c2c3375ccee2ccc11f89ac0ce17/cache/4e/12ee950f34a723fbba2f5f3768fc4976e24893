@@ -1,0 +1,150 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/MapView/MapView.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeMaps = require('react-native-maps');
+
+var _reactNativeMaps2 = babelHelpers.interopRequireDefault(_reactNativeMaps);
+
+var Maps = function (_Component) {
+  babelHelpers.inherits(Maps, _Component);
+
+  function Maps() {
+    babelHelpers.classCallCheck(this, Maps);
+    return babelHelpers.possibleConstructorReturn(this, (Maps.__proto__ || Object.getPrototypeOf(Maps)).call(this));
+  }
+
+  babelHelpers.createClass(Maps, [{
+    key: 'render',
+    value: function render() {
+
+      var initialRegion = {
+        latitude: 26.8113520,
+        longitude: 75.8899120,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      };
+      var initialRegion1 = {
+        latitude: 28.0229350,
+        longitude: 73.3119160,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      };
+      var initialRegion2 = {
+        latitude: 27.1991220,
+        longitude: 73.7409240,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      };
+      var initialRegion3 = {
+        latitude: 26.9854870,
+        longitude: 75.8513450,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      };
+      var initialRegion4 = {
+        latitude: 26.4498950,
+        longitude: 74.6399160,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      };
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 44
+          }
+        },
+        _react2.default.createElement(
+          _reactNativeMaps2.default,
+          { style: styles.map,
+            initialRegion: initialRegion, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            }
+          },
+          _react2.default.createElement(_reactNativeMaps2.default.Marker, {
+            coordinate: initialRegion,
+            pinColor: 'green',
+            title: 'Sector 36, Sisyawas, NRI Road, Jagatpura, Jaipur',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 48
+            }
+          }),
+          _react2.default.createElement(_reactNativeMaps2.default.Marker, {
+            coordinate: initialRegion1,
+            pinColor: 'green',
+            title: 'Bikaner, Rajasthan, India',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 53
+            }
+          }),
+          _react2.default.createElement(_reactNativeMaps2.default.Marker, {
+            coordinate: initialRegion2,
+            pinColor: 'green',
+            title: 'Nagaur, Rajasthan 341001',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            }
+          }),
+          _react2.default.createElement(_reactNativeMaps2.default.Marker, {
+            coordinate: initialRegion3,
+            pinColor: 'red',
+            title: 'Bhopal Ganj, Bhilwara, Rajasthan ',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            }
+          }),
+          _react2.default.createElement(_reactNativeMaps2.default.Marker, {
+            coordinate: initialRegion4,
+            pinColor: 'red',
+            title: 'Ajmer, Rajasthan, India',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 68
+            }
+          })
+        )
+      );
+    }
+  }]);
+  return Maps;
+}(_react.Component);
+
+exports.default = Maps;
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  }
+});
+
+_reactNative.AppRegistry.registerComponent('Maps', function () {
+  return Maps;
+});

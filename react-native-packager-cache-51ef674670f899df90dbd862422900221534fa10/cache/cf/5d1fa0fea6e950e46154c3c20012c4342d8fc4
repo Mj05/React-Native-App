@@ -1,0 +1,190 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _class,
+    _temp2,
+    _jsxFileName = '/home/mukesh/ReactNative/Mj/app/components/Login/Login.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _TabView = require('../Tabs/TabView');
+
+var _TabView2 = babelHelpers.interopRequireDefault(_TabView);
+
+var Login = (_temp2 = _class = function (_Component) {
+  babelHelpers.inherits(Login, _Component);
+
+  function Login() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, Login);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = Login.__proto__ || Object.getPrototypeOf(Login)).call.apply(_ref, [this].concat(args))), _this), _this.login = function () {
+
+      _this.props.navigation.navigate('TabView');
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(Login, [{
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(
+        _reactNative.KeyboardAvoidingView,
+        { behavior: 'position', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 36
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Image,
+          { source: require('./img/Login.jpg'), style: styles.backgroundImage, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.content, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 39
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.logo, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 40
+                }
+              },
+              'SWACHH-a-THON'
+            ),
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.inputcontainer, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 41
+                }
+              },
+              _react2.default.createElement(_reactNative.TextInput, { secureTextEntry: false,
+                underlineColorAndroid: 'transparent',
+                style: styles.input,
+                placeholder: 'User_Name', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 43
+                }
+              }),
+              _react2.default.createElement(_reactNative.TextInput, { secureTextEntry: false,
+                underlineColorAndroid: 'transparent',
+                style: styles.input,
+                placeholder: 'User_Contact', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 48
+                }
+              }),
+              _react2.default.createElement(
+                _reactNative.TouchableOpacity,
+                { onPress: this.login, style: styles.buttonContainer, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 54
+                  }
+                },
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  { style: styles.buttonText, __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 55
+                    }
+                  },
+                  'JOIN NOW '
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Login;
+}(_react.Component), _class.propTypes = {
+  navigation: _react.PropTypes.object
+}, _temp2);
+exports.default = Login;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 2
+
+  },
+  backgroundImage: {
+
+    resizeMode: 'cover',
+    alignSelf: 'stretch',
+    width: null,
+    justifyContent: 'center'
+  },
+  content: {
+    alignItems: 'center',
+    margin: 1
+  },
+  logo: {
+    marginTop: 50,
+    color: 'white',
+    fontSize: 40,
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    textShadowColor: '#252525',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 15,
+    marginBottom: 30
+  },
+  inputcontainer: {
+    margin: 10,
+    marginTop: 60,
+    padding: 20,
+    paddingBottom: 10,
+    alignSelf: 'stretch',
+    borderWidth: 1,
+    borderColor: '#fff',
+    backgroundColor: 'rgba(2,2,0.2,0.2)'
+  },
+  input: {
+    fontSize: 16,
+    height: 40,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: 'rgba(255,255,255,1)'
+  },
+  buttonContainer: {
+    alignSelf: 'stretch',
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'blue',
+    borderWidth: 1,
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255,255,255,0.6)'
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'black'
+  }
+});
+
+_reactNative.AppRegistry.registerComponent('Login', function () {
+  return Login;
+});

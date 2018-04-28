@@ -1,0 +1,64 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Mj/app/components/Navigation.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var Navigation = function (_React$Component) {
+  babelHelpers.inherits(Navigation, _React$Component);
+
+  function Navigation() {
+    babelHelpers.classCallCheck(this, Navigation);
+    return babelHelpers.possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Navigation, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 7
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.Text,
+          { style: styles.mj, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 8
+            }
+          },
+          'Welcome to React Native World '
+        )
+      );
+    }
+  }]);
+  return Navigation;
+}(_react2.default.Component);
+
+exports.default = Navigation;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  mj: {
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    fontSize: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'red'
+  }
+});

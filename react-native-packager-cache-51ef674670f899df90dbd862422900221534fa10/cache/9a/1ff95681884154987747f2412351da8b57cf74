@@ -1,0 +1,9 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Toolbar = require('./Toolbar');
+
+var _Toolbar2 = babelHelpers.interopRequireDefault(_Toolbar);
+
+exports.default = _Toolbar2.default;

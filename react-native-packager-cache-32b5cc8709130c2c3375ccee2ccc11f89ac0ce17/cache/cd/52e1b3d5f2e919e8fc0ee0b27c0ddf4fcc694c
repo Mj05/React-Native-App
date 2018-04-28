@@ -1,0 +1,135 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/Report/Tabs.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var Tabs = function (_Component) {
+  babelHelpers.inherits(Tabs, _Component);
+
+  function Tabs() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, Tabs);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      activeTab: 0
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(Tabs, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props,
+          children = _ref2.children;
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.tabsContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          },
+          children.map(function (_ref3, index) {
+            var title = _ref3.props.title;
+            return _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: [styles.tabContainer, index === _this2.state.activeTab ? styles.tabContainerActive : []],
+
+                onPress: function onPress() {
+                  return _this2.setState({ activeTab: index });
+                },
+
+                key: index,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 27
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                { style: styles.tabText, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                  }
+                },
+                title
+              )
+            );
+          })
+        ),
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.contentContainer, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 47
+            }
+          },
+          children[this.state.activeTab]
+        )
+      );
+    }
+  }]);
+  return Tabs;
+}(_react.Component);
+
+exports.default = Tabs;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1 },
+
+  tabsContainer: {
+    flexDirection: 'row',
+
+    backgroundColor: '#3D92DE' },
+
+  tabContainer: {
+    flex: 1,
+    paddingVertical: 15,
+    borderBottomWidth: 3,
+    borderBottomColor: 'transparent' },
+
+  tabContainerActive: {
+    borderBottomColor: '#f1c40f'
+  },
+
+
+  tabText: {
+    color: '#FFFFFF',
+
+    fontWeight: '400',
+    fontSize: 20,
+    textAlign: 'center',
+    fontStyle: 'italic'
+  },
+
+  contentContainer: {
+    flex: 1 }
+});
+_reactNative.AppRegistry.registerComponent('Tabs', function () {
+  return Tabs;
+});

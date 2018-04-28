@@ -1,0 +1,499 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/mukesh/ReactNative/Swachhthon/app/components/Camera/index.js';
+
+var _expo = require('expo');
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _GalleryScreen = require('./GalleryScreen');
+
+var _GalleryScreen2 = babelHelpers.interopRequireDefault(_GalleryScreen);
+
+var regeneratorRuntime = require('regenerator-runtime');
+
+var flashModeOrder = {
+  off: 'on',
+  on: 'auto',
+  auto: 'torch',
+  torch: 'off'
+};
+
+var wbOrder = {
+  auto: 'sunny',
+  sunny: 'cloudy',
+  cloudy: 'shadow',
+  shadow: 'fluorescent',
+  fluorescent: 'incandescent',
+  incandescent: 'auto'
+};
+
+var CameraScreen = function (_React$Component) {
+  babelHelpers.inherits(CameraScreen, _React$Component);
+
+  function CameraScreen() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, CameraScreen);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = CameraScreen.__proto__ || Object.getPrototypeOf(CameraScreen)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      flash: 'off',
+      zoom: 0,
+      autoFocus: 'on',
+      depth: 0,
+      type: 'back',
+      whiteBalance: 'auto',
+      ratio: '16:9',
+      ratios: [],
+      photoId: 1,
+      showGallery: false,
+      photos: []
+    }, _this.getRatios = function _callee() {
+      var ratios;
+      return regeneratorRuntime.async(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(this.camera.getSupportedRatios());
+
+            case 2:
+              ratios = _context.sent;
+              return _context.abrupt('return', ratios);
+
+            case 4:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }, _this.takePictureAsync = function _callee2() {
+      var _this2 = this;
+
+      return regeneratorRuntime.async(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              if (this.camera) {
+                this.camera.takePictureAsync().then(function (data) {
+                  _expo.FileSystem.moveAsync({
+                    from: data,
+                    to: _expo.FileSystem.documentDirectory + 'photos/Photo_' + _this2.state.photoId + '.jpg'
+                  }).then(function () {
+                    _this2.setState({
+                      photoId: _this2.state.photoId + 1
+                    });
+                    _reactNative.Vibration.vibrate();
+                  });
+                });
+              }
+
+            case 1:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, null, this);
+    }, _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(CameraScreen, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _expo.FileSystem.makeDirectoryAsync(_expo.FileSystem.documentDirectory + 'photos').catch(function (e) {
+        console.log(e, 'Directory exists');
+      });
+    }
+  }, {
+    key: 'toggleView',
+    value: function toggleView() {
+      this.setState({
+        showGallery: !this.state.showGallery
+      });
+    }
+  }, {
+    key: 'toggleFacing',
+    value: function toggleFacing() {
+      this.setState({
+        type: this.state.type === 'back' ? 'front' : 'back'
+      });
+    }
+  }, {
+    key: 'toggleFlash',
+    value: function toggleFlash() {
+      this.setState({
+        flash: flashModeOrder[this.state.flash]
+      });
+    }
+  }, {
+    key: 'setRatio',
+    value: function setRatio(ratio) {
+      this.setState({
+        ratio: ratio
+      });
+    }
+  }, {
+    key: 'toggleWB',
+    value: function toggleWB() {
+      this.setState({
+        whiteBalance: wbOrder[this.state.whiteBalance]
+      });
+    }
+  }, {
+    key: 'toggleFocus',
+    value: function toggleFocus() {
+      this.setState({
+        autoFocus: this.state.autoFocus === 'on' ? 'off' : 'on'
+      });
+    }
+  }, {
+    key: 'zoomOut',
+    value: function zoomOut() {
+      this.setState({
+        zoom: this.state.zoom - 0.1 < 0 ? 0 : this.state.zoom - 0.1
+      });
+    }
+  }, {
+    key: 'zoomIn',
+    value: function zoomIn() {
+      this.setState({
+        zoom: this.state.zoom + 0.1 > 1 ? 1 : this.state.zoom + 0.1
+      });
+    }
+  }, {
+    key: 'setFocusDepth',
+    value: function setFocusDepth(depth) {
+      this.setState({
+        depth: depth
+      });
+    }
+  }, {
+    key: 'renderGallery',
+    value: function renderGallery() {
+      return _react2.default.createElement(_GalleryScreen2.default, { onPress: this.toggleView.bind(this), __source: {
+          fileName: _jsxFileName,
+          lineNumber: 154
+        }
+      });
+    }
+  }, {
+    key: 'renderCamera',
+    value: function renderCamera() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        _expo.Camera,
+        {
+          ref: function ref(_ref2) {
+            _this3.camera = _ref2;
+          },
+          style: {
+            flex: 1
+          },
+          type: this.state.type,
+          flashMode: this.state.flash,
+          autoFocus: this.state.autoFocus,
+          zoom: this.state.zoom,
+          whiteBalance: this.state.whiteBalance,
+          ratio: this.state.ratio,
+          focusDepth: this.state.depth, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 159
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 0.5,
+              backgroundColor: 'transparent',
+              flexDirection: 'row'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 173
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: styles.flipButton,
+              onPress: this.toggleFacing.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 179
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 182
+                }
+              },
+              ' FLIP '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: styles.flipButton,
+              onPress: this.toggleFlash.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 184
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 187
+                }
+              },
+              ' ',
+              'FLASH: ',
+              this.state.flash,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: styles.flipButton,
+              onPress: this.toggleWB.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 191
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 194
+                }
+              },
+              ' ',
+              'WB: ',
+              this.state.whiteBalance,
+              ' '
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 0.4,
+              backgroundColor: 'transparent',
+              flexDirection: 'row',
+              alignSelf: 'flex-end'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 199
+            }
+          },
+          _react2.default.createElement(_reactNative.Slider, {
+            style: { width: 150, marginTop: 15, alignSelf: 'flex-end' },
+            onValueChange: this.setFocusDepth.bind(this),
+            value: this.state.depth,
+            step: 0.1,
+            disabled: this.state.autoFocus === 'on',
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 206
+            }
+          })
+        ),
+        _react2.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 0.1,
+              backgroundColor: 'transparent',
+              flexDirection: 'row',
+              alignSelf: 'flex-end'
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 214
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: [styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }],
+              onPress: this.zoomIn.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 221
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 224
+                }
+              },
+              ' + '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: [styles.flipButton, { flex: 0.1, alignSelf: 'flex-end' }],
+              onPress: this.zoomOut.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 226
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 229
+                }
+              },
+              ' - '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: [styles.flipButton, { flex: 0.25, alignSelf: 'flex-end' }],
+              onPress: this.toggleFocus.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 231
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 234
+                }
+              },
+              ' ',
+              'AF : ',
+              this.state.autoFocus,
+              ' '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: [styles.flipButton, styles.picButton, { flex: 0.3, alignSelf: 'flex-end' }],
+              onPress: this.takePictureAsync.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 238
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 245
+                }
+              },
+              ' SNAP '
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: [styles.flipButton, styles.galleryButton, { flex: 0.25, alignSelf: 'flex-end' }],
+              onPress: this.toggleView.bind(this), __source: {
+                fileName: _jsxFileName,
+                lineNumber: 247
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.Text,
+              { style: styles.flipText, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 254
+                }
+              },
+              ' Gallery '
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 263
+          }
+        },
+        this.state.showGallery ? this.renderGallery() : this.renderCamera()
+      );
+    }
+  }]);
+  return CameraScreen;
+}(_react2.default.Component);
+
+exports.default = CameraScreen;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'ivory'
+  },
+  navigation: {
+    flex: 1
+  },
+  gallery: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  flipButton: {
+    flex: 0.3,
+    height: 40,
+    marginHorizontal: 2,
+    marginBottom: 10,
+    marginTop: 20,
+    borderRadius: 8,
+    borderColor: 'white',
+    borderWidth: 1,
+    padding: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  flipText: {
+    color: 'white',
+    fontSize: 15
+  },
+  item: {
+    margin: 4,
+    backgroundColor: 'indianred',
+    height: 35,
+    width: 80,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  picButton: {
+    backgroundColor: 'darkseagreen'
+  },
+  galleryButton: {
+    backgroundColor: 'indianred'
+  },
+  row: {
+    flexDirection: 'row'
+  }
+});

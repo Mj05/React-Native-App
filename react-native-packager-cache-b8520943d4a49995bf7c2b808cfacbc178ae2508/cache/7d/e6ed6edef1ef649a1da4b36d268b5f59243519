@@ -1,0 +1,135 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/home/radius/Swachhthon/app/components/Profile/Profile.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeTabView = require('react-native-tab-view');
+
+var _Header = require('./Header');
+
+var _Header2 = babelHelpers.interopRequireDefault(_Header);
+
+var _Photogrid = require('./Photogrid');
+
+var _Photogrid2 = babelHelpers.interopRequireDefault(_Photogrid);
+
+var _ProfileCards = require('../ProfileCards/ProfileCards');
+
+var _ProfileCards2 = babelHelpers.interopRequireDefault(_ProfileCards);
+
+var FirstRoute = function FirstRoute() {
+  return _react2.default.createElement(_ProfileCards2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    }
+  });
+};
+var SecondRoute = function SecondRoute() {
+  return _react2.default.createElement(_ProfileCards2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    }
+  });
+};
+
+var Profile = function (_PureComponent) {
+  babelHelpers.inherits(Profile, _PureComponent);
+
+  function Profile() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, Profile);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = Profile.__proto__ || Object.getPrototypeOf(Profile)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      index: 0,
+      routes: [{ key: '1', title: 'Most Rated' }, { key: '2', title: 'All POsts' }]
+    }, _this._handleIndexChange = function (index) {
+      return _this.setState({ index: index });
+    }, _this._renderHeader = function (props) {
+      return _react2.default.createElement(_reactNativeTabView.TabBar, babelHelpers.extends({}, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        }
+      }));
+    }, _this._renderScene = (0, _reactNativeTabView.SceneMap)({
+      '1': FirstRoute,
+      '2': SecondRoute
+    }), _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(Profile, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 33
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.header, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 34
+            }
+          },
+          _react2.default.createElement(_Header2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          })
+        ),
+        _react2.default.createElement(_reactNativeTabView.TabViewAnimated, {
+          style: styles.tab,
+          navigationState: this.state,
+          renderScene: this._renderScene,
+          renderHeader: this._renderHeader,
+          onIndexChange: this._handleIndexChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 38
+          }
+        })
+      );
+    }
+  }]);
+  return Profile;
+}(_react.PureComponent);
+
+exports.default = Profile;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  header: {
+    flex: 1
+
+  },
+  tab: {
+    flex: 3
+
+  }
+});
+_reactNative.AppRegistry.registerComponent('Profile', function () {
+  return Profile;
+});

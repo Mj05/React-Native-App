@@ -1,0 +1,265 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _jsxFileName = '/home/mukesh/ReactNative/Mj/app/components/Tabs/TabView.js',
+    _class,
+    _temp2;
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _reactNativeTabView = require('react-native-tab-view');
+
+var _index = require('./index');
+
+var _index2 = babelHelpers.interopRequireDefault(_index);
+
+var _reactNativeToolbar = require('react-native-toolbar');
+
+var _reactNativeToolbar2 = babelHelpers.interopRequireDefault(_reactNativeToolbar);
+
+var _Login = require('../Login/Login');
+
+var _Login2 = babelHelpers.interopRequireDefault(_Login);
+
+var _Heros = require('../Heros/Heros');
+
+var _Heros2 = babelHelpers.interopRequireDefault(_Heros);
+
+var _HomeCards = require('../HomeCards/HomeCards');
+
+var _HomeCards2 = babelHelpers.interopRequireDefault(_HomeCards);
+
+var _ReportView = require('../Report/ReportView');
+
+var _ReportView2 = babelHelpers.interopRequireDefault(_ReportView);
+
+var FirstRoute = function FirstRoute() {
+  return _react2.default.createElement(_HomeCards2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    }
+  });
+};
+var SecondRoute = function SecondRoute() {
+  return _react2.default.createElement(_Heros2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    }
+  });
+};
+var ThirdRoute = function ThirdRoute() {
+  return _react2.default.createElement(
+    _reactNative.View,
+    { style: [styles.container, { backgroundColor: 'white' }], __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      }
+    },
+    _react2.default.createElement(
+      _reactNative.Text,
+      { style: { color: 'black', fontWeight: 'bold', textAlign: 'center', marginTop: 50 }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      },
+      'We Are Currently Working On This Part Of Application. Please Skip It.'
+    )
+  );
+};
+var FourthRoute = function FourthRoute() {
+  return _react2.default.createElement(_ReportView2.default, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    }
+  });
+};
+
+var Mj = (_temp2 = _class = function (_PureComponent) {
+  babelHelpers.inherits(Mj, _PureComponent);
+
+  function Mj() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    babelHelpers.classCallCheck(this, Mj);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = babelHelpers.possibleConstructorReturn(this, (_ref = Mj.__proto__ || Object.getPrototypeOf(Mj)).call.apply(_ref, [this].concat(args))), _this), _this.handleProfilePress = function () {
+      _this.props.navigation.navigate('Profile');
+    }, _this.state = {
+      index: 0,
+      routes: [{ key: '1', title: 'Home' }, { key: '2', title: 'Heroes' }, { key: '3', title: 'Map' }, { key: '4', title: 'Report' }]
+    }, _this._handleIndexChange = function (index) {
+      return _this.setState({ index: index });
+    }, _this._renderHeader = function (props) {
+      return _react2.default.createElement(_reactNativeTabView.TabBar, babelHelpers.extends({}, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45
+        }
+      }));
+    }, _this._renderScene = (0, _reactNativeTabView.SceneMap)({
+      '1': FirstRoute,
+      '2': SecondRoute,
+      '3': ThirdRoute,
+      '4': FourthRoute
+    }), _temp), babelHelpers.possibleConstructorReturn(_this, _ret);
+  }
+
+  babelHelpers.createClass(Mj, [{
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(
+        _reactNative.View,
+        { style: styles.container, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 60
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: styles.bar, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: [styles.barItem, styles.barSeprator], __source: {
+                fileName: _jsxFileName,
+                lineNumber: 62
+              }
+            },
+            _react2.default.createElement(_index2.default, {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 63
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: styles.barItem, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 65
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              { style: styles.profilepicwrap, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 67
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.TouchableOpacity,
+                { style: styles.button, onPress: this.handleProfilePress, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 68
+                  }
+                },
+                _react2.default.createElement(_reactNative.Image, { style: styles.profilepic, source: require('./img/Profile.png'), __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 69
+                  }
+                })
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(_reactNativeTabView.TabViewAnimated, {
+          navigationState: this.state,
+          renderScene: this._renderScene,
+          renderHeader: this._renderHeader,
+          onIndexChange: this._handleIndexChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 74
+          }
+        })
+      );
+    }
+  }]);
+  return Mj;
+}(_react.PureComponent), _class.propTypes = {
+  navigation: _react.PropTypes.object
+}, _temp2);
+exports.default = Mj;
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  bar: {
+    marginTop: 0,
+    borderTopColor: '#fff',
+    borderTopWidth: 1,
+    backgroundColor: '#3D92DE',
+    flexDirection: 'row'
+  },
+  barSeprator: {
+    flex: 1,
+    borderRightWidth: 1,
+    borderColor: '#fff',
+    paddingTop: 8
+  },
+  barTop: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold',
+    fontStyle: 'italic'
+  },
+  barBottom: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: 'bold'
+  },
+  barItem: {
+    padding: 3,
+    alignItems: 'center'
+  },
+  profilepicwrap: {
+    marginTop: 0,
+    width: 50,
+    height: 50,
+    padding: 1,
+    borderRadius: 90,
+    borderColor: 'red',
+    borderWidth: 0
+  },
+  profilepic: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  },
+  button: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch',
+    borderRadius: 90,
+    borderColor: '#fff',
+    borderWidth: 1
+  }
+});
+_reactNative.AppRegistry.registerComponent('Mj', function () {
+  return Mj;
+});

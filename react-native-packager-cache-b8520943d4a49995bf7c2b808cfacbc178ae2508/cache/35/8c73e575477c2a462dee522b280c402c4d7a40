@@ -1,0 +1,22 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.responsiveFontSize = exports.responsiveWidth = exports.responsiveHeight = undefined;
+
+var _reactNative = require('react-native');
+
+var _Dimensions$get = _reactNative.Dimensions.get('window'),
+    height = _Dimensions$get.height,
+    width = _Dimensions$get.width;
+
+var responsiveHeight = exports.responsiveHeight = function responsiveHeight(h) {
+  return height * (h / 100);
+};
+
+var responsiveWidth = exports.responsiveWidth = function responsiveWidth(w) {
+  return width * (w / 100);
+};
+
+var responsiveFontSize = exports.responsiveFontSize = function responsiveFontSize(f) {
+  return Math.sqrt(height * height + width * width) * (f / 100);
+};
